@@ -13,5 +13,13 @@ public class TestarLista {
         lista.inserir(new No(3), 2);
 
         lista.imprimir();
+
+        try {
+            System.out.println("Removido: "+lista.remover(1).getElemento());
+        }catch(Exception e){
+            System.out.println("Posição que o senhor tentou inserir não existe!");
+        }
+
+
     }
 }
