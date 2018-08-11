@@ -99,4 +99,137 @@ public class Lista {
 
         return aux;
     }
+
+    //Quantidade de número pares
+    public int qtdNumerosPares(){
+        No aux = null;
+        int contador = 0;
+        if(!isVazia()){
+            aux = this.inicio;
+            while(aux != null){
+                if(aux.getElemento()%2 == 0){
+                    contador++;
+                    aux = aux.getProximo();
+                }else{
+                    aux = aux.getProximo();
+                }
+            }
+            return contador;
+        }else{
+            System.out.println("A lista está vazia!");
+            return contador;
+        }
+    }
+
+    //Número pares da lista
+    public void numeroPares(){
+        No aux = null;
+        if(!isVazia()){
+            aux = this.inicio;
+            while(aux != null){
+                if(aux.getElemento()%2 == 0){
+                    System.out.println(aux.getElemento());
+                    aux = aux.getProximo();
+                }else{
+                    aux = aux.getProximo();
+                }
+            }
+        }else{
+            System.out.println("A lista está vazia!");
+        }
+    }
+
+    //Média da lista
+    public double mediaLista(){
+        No aux = null;
+        double media = 0;
+        double quantidade = 0;
+        double acumulador = 0;
+        if(!isVazia()){
+            aux = this.inicio;
+            while(aux != null){
+                acumulador += aux.getElemento();
+                quantidade++;
+                aux = aux.getProximo();
+            }
+            media = acumulador/quantidade;
+            return media;
+        }else{
+            System.out.println("A lista está vazia!");
+            return media;
+        }
+    }
+
+    //Insesir valor após valor determinado
+    public void inserirApos(No n1, No n2){
+        No aux = null;
+        if(isVazia()){
+            this.inserirNoInicio(n2);
+        }else{
+            aux = this.inicio;
+            int posi = 1;
+            while(aux != null){
+                if(aux.getElemento() == n1.getElemento()){
+                    this.inserir(n2, posi+1);
+                    System.out.println("Inserido na posição "+(posi+1));
+                    break;
+                }else{
+                    aux = aux.getProximo();
+                    posi++;
+                }
+            }
+        }
+    }
+
+    public void inverter(){
+        No aux = null;
+        No aux1 = inicio;
+        No temp = aux1.getProximo();
+        Lista invertida = new Lista();
+        if(!isVazia()){
+            while(aux1 != null){
+                aux = aux1;
+                aux1 = temp;
+                invertida.inserirNoInicio(temp);
+            }
+        }else{
+            System.out.println("A lista está vazia!");
+        }
+    }
+
+    public boolean excluirN(int n){
+        if(!isVazia() && n<this.quantidade){
+            for(int i = 0; i <= n; i++){
+                this.remover(i);
+                System.out.println(i);
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean maior(){
+        No aux = null;
+        int maiorPosicao = 0;
+        int maiorValor = 0;
+        int contador = 0;
+        if(!isVazia()){
+            aux = this.inicio;
+            while(aux != null){
+                if(aux.getElemento()>maiorValor){
+                    maiorValor = aux.getElemento();
+                    maiorPosicao = contador;
+                }
+                contador++;
+                aux = aux.getProximo();
+            }
+            System.out.println("Maior Valor: "+maiorValor);
+            System.out.println("Posição: "+(maiorPosicao+1));
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
