@@ -36,17 +36,37 @@ public class TestarLista {
         System.out.println("------------------");
         System.out.println("Média lista:");
         System.out.println(lista.mediaLista());
-        lista.inserirApos(new No(4), new No(10));
+        //lista.inserirApos(new No(4), new No(10));
         lista.imprimir();
         System.out.println("------------------");
         System.out.println("Lista invertida: ");
-        lista.inverter();
+        lista.inverter(lista);
         System.out.println("------------------");
         System.out.println("Deu certo excluir? ");
-        //System.out.println(lista.excluirN(2));
+        //System.out.println(lista.excluirN(lista,2));
+        //lista.imprimir();
         System.out.println("------------------");
         System.out.println("Deu certo achar o maior? ");
         System.out.println(lista.maior());
+        System.out.println("------------------");
+        System.out.println("Trocar posição deu certo?? ");
+        //System.out.println(lista.trocar(new No(0), new No(1)));
+
+
+        //Lista clonada = new Lista();
+        //clonada.clonar(lista);
+        //clonada.imprimir();
+
+        System.out.println("-------------------------------");
+        // lista.adicionandoInvertendo(lista, lista);
+
+        //System.out.println("Valor da soma: "+lista.somar(lista));
+
+        Lista l2 = new Lista();
+        l2.inserirNoInicio(new No(1));
+        l2.inserirNoInicio(new No(2));
+        lista.adicionarElementos(lista, l2);
+
 
     }
 }
