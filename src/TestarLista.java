@@ -40,7 +40,7 @@ public class TestarLista {
         lista.imprimir();
         System.out.println("------------------");
         System.out.println("Lista invertida: ");
-        lista.inverter(lista);
+        //lista.inverter(lista);
         System.out.println("------------------");
         System.out.println("Deu certo excluir? ");
         //System.out.println(lista.excluirN(lista,2));
@@ -65,7 +65,10 @@ public class TestarLista {
         Lista l2 = new Lista();
         l2.inserirNoInicio(new No(1));
         l2.inserirNoInicio(new No(2));
-        lista.adicionarElementos(lista, l2);
+        l2 = l2.adicionandoInvertendo(lista,l2);
+        l2.imprimir();
+
+        //lista.adicionarElementos(lista, l2);
 
 
     }

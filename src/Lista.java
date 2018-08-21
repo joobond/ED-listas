@@ -1,4 +1,5 @@
-
+//Feitos: 1, 2, 3, 4, 5, 7, 9, 11, 13, 15
+//Não feitos: 6, 8, 10, 12, 14
 public class Lista {
 
     private No inicio;
@@ -182,10 +183,10 @@ public class Lista {
         }
     }
 
-    public void inverter(Lista l) {
+    public Lista inverter() {
         No aux = null;
         Lista invertida = null;
-        Lista listaaux = l;
+        Lista listaaux = this;
         if (!isVazia()) {
             aux = listaaux.inicio;
             invertida = new Lista();
@@ -193,9 +194,10 @@ public class Lista {
                 invertida.inserirNoInicio(new No(aux.getElemento()));
                 aux = aux.getProximo();
             }
-            invertida.imprimir();
+            return invertida;
         } else {
             System.out.println("A lista está vazia!");
+            return null;
         }
     }
 
@@ -328,17 +330,24 @@ public class Lista {
     }
 
     //Invertendo l1 e adicionando em l2
-    public void adicionandoInvertendo(Lista lista1, Lista lista2) {
+    public Lista adicionandoInvertendo(Lista lista1, Lista lista2) {
         No aux = null;
-        lista1.inverter(lista1);
-        aux = lista1.inicio;
-        while (aux != null) {
-            lista2.inserirNoFim(new No(aux.getElemento()));
-            aux = aux.getProximo();
+        if(!lista1.isVazia()){
+            lista1 = lista1.inverter();
+            aux = lista1.inicio;
+            while (aux != null) {
+                lista2.inserirNoFim(new No(aux.getElemento()));
+                aux = aux.getProximo();
+            }
+            return lista2;
+        }else{
+            System.out.println("A primeira lista está vazia!");
+            return null;
         }
-        lista2.imprimir();
+
     }
 
+    /*
     public void eliminarRepetidos(Lista lista1, Lista lista2) {
         No aux = null;
         No aux1 = null;
@@ -351,6 +360,7 @@ public class Lista {
         }
         lista2.imprimir();
     }
+
 
     public int contem(No n1, Lista l1){
         No aux = null;
@@ -369,4 +379,5 @@ public class Lista {
             return false;
         }
     }
+    */
 }
